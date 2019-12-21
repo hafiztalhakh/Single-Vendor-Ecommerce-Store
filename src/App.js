@@ -13,7 +13,7 @@ import SubmitAd from './Screens/Submit Ad/SubmitAd';
 class App extends React.Component {
 
     state = {
-
+        
     }
 
     render() {
@@ -23,6 +23,7 @@ class App extends React.Component {
             <React.Fragment>
 
                         <Navbar/>
+                
             </React.Fragment>
         )
     }

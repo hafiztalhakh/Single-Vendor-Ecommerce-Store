@@ -1,8 +1,12 @@
 import React from 'react';
 import {
     Navbar,
-    Nav
+    Nav,
+    Button
 } from 'react-bootstrap';
+
+//Components
+import LoginButton from '../loginAndSignup/Modal'
 
 export default class AppBar extends React.Component {
 
@@ -13,11 +17,9 @@ export default class AppBar extends React.Component {
             <React.Fragment>
 
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Navbar.Brand href="#home">Ecommerce Store</Navbar.Brand>
+                    <Nav className="ml-auto">
+                        <LoginButton/>
                     </Nav>
                 </Navbar>
             </React.Fragment>
