@@ -5,9 +5,6 @@ import { Button, ButtonToolbar, Modal } from 'react-bootstrap';
 import LoginForm from './Components/Login';
 import RegisterForm from './Components/Register';
 
-// import './Modal.css';
-
-
 class ShowModal extends React.Component {
 
     state = {
@@ -36,7 +33,7 @@ class ShowModal extends React.Component {
         return (
             <Modal
                 {...this.props}
-                size="lg"
+                // size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 dialogClassName="modal-signup"
@@ -62,7 +59,7 @@ export default function App() {
             <Button className="login-btn"
                 onClick={() => setModalShow(true)}
                 style={{
-                    backgroundColor: "transparent", borderColor: 'white',
+                    backgroundColor: "transparent", borderColor: 'transparent',
                     color: 'white', marginRight: 10, fontWeight: 'bold', height: 50
                 }}
             >
