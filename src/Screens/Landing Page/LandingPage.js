@@ -1,7 +1,10 @@
 import React from 'react';
 
+//Components
+import AdsCard from '../../Components/Ads Card/AdsCard'
 
-class App extends React.Component {
+
+class LandingPage extends React.Component {
 
     state = {
 
@@ -12,10 +15,11 @@ class App extends React.Component {
         return (
 
             <React.Fragment>
-
+                <br/>
+                <AdsCard/>
             </React.Fragment>
         )
     }
 }
 
-export default App;
+export default LandingPage;
