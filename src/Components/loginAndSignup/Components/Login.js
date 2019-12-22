@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+//firebase 
+import firebase from '../../../Config/Firebase';
+
 const styles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -35,8 +38,36 @@ const styles = makeStyles(theme => ({
 
 class App extends React.Component {
 
+    state = {
+        username: null,
+        password: null,
+    }
+
     showRegisterForm = () =>{
         this.props.signUp();
+    }
+
+    userLogin = () =>{
+        const { username, password } = this.state;
+        console.log(username);
+
+        firebase.auth().signInWithEmailAndPassword(username, password)
+        .then(()=>{
+            console.log('logged in');
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+          });
+    }
+
+    handleTextFields = (e) =>{
+
+        this.setState({
+            [e.target.name] : e.target.value,
+        });
     }
 
     render() {
@@ -57,9 +88,11 @@ class App extends React.Component {
                             fullWidth
                             id="email"
                             label="Email Address"
-                            name="email"
+                            name="username"
                             autoComplete="email"
                             autoFocus
+                            onChange={this.handleTextFields}
+
                         />
                         <TextField
                             variant="outlined"
@@ -71,36 +104,30 @@ class App extends React.Component {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={this.handleTextFields}
+
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
                         />
-                        <Button
-                            type="submit"
+                    </form>
+                    <Button
                             fullWidth
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            onClick={this.userLogin}
                         >
                             Sign In
                 </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                    </Link>
-                            </Grid>
-                            <Grid item>
-                                <span style={{
+                <br/>
+                <span style={{
                                     color: 'blue',
                                     textDecoration: 'anchor'
                                 }} variant="body2" onClick={this.showRegisterForm}>
                                     {"Don't have an account? Sign Up"}
                                 </span>
-                            </Grid>
-                        </Grid>
-                    </form>
                 </div>
                 
             </Container>

@@ -62,8 +62,8 @@ export default function App() {
             <Button className="login-btn"
                 onClick={() => setModalShow(true)}
                 style={{
-                    backgroundColor: "transparent", borderColor: 'transparent',
-                    color: '#FF0083', marginRight: 10, fontWeight: 'bold', height: 50
+                    backgroundColor: "transparent", borderColor: 'white',
+                    color: 'white', marginRight: 10, fontWeight: 'bold', height: 50
                 }}
             >
                 Login
