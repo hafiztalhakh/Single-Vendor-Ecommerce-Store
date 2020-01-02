@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 
 //Components
 import AdsCard from '../../Components/Ads Card/AdsCard'
@@ -15,8 +16,10 @@ class LandingPage extends React.Component {
         return (
 
             <React.Fragment>
-                <br/>
-                <AdsCard/>
+                <br />
+                <Container maxWidth="lg">
+                    <AdsCard />
+                </Container>
             </React.Fragment>
         )
     }

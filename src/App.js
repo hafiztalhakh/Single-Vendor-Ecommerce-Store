@@ -53,6 +53,8 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Navbar user={this.state.user} isLoggedIn={this.state.isLoggedIn}/>
+                <br/>
+                <br/>
                 <LandingPage/>
             </React.Fragment>
         )

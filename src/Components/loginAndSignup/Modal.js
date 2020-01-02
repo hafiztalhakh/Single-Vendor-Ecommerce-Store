@@ -47,30 +47,44 @@ class ShowModal extends React.Component {
     }
 }
 
-export default function App() {
-    const [modalShow, setModalShow] = React.useState(false);
+export default class App extends React.Component {
 
-    var login = () => {
-        setModalShow(false);
+    state = {
+        modalShow: false,
     }
 
-    return (
-        <ButtonToolbar>
-            <Button className="login-btn"
-                onClick={() => setModalShow(true)}
-                style={{
-                    backgroundColor: "transparent", borderColor: 'transparent',
-                    color: 'white', marginRight: 10, fontWeight: 'bold', height: 50
-                }}
-            >
-                Login
+    login = () =>{
+        this.setState({
+            modalShow: true,
+        })
+    }
+
+    hideLogin = () =>{
+        this.setState({
+            modalShow: false,
+        })
+    }
+
+    render() {
+
+        return (
+            <ButtonToolbar>
+                <Button className="login-btn"
+                    onClick={() => this.login()}
+                    style={{
+                        backgroundColor: "transparent", borderColor: 'transparent',
+                        color: 'white', marginRight: 10, fontWeight: 'bold', height: 50
+                    }}
+                >
+                    Login
             </Button>
 
-            <ShowModal
-                show={modalShow}
-                onHide={() => login()}
-                hideModal={login}
-            />
-        </ButtonToolbar>
-    );
+                <ShowModal
+                    show={this.state.modalShow}
+                    onHide={()=> this.hideLogin()}
+                    hideModal={this.hideLogin}
+                />
+            </ButtonToolbar>
+        );
+    }
 }

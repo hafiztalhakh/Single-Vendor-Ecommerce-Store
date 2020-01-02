@@ -76,7 +76,7 @@ export default function CitySelector(props) {
                     placeholder: styles => ({ ...styles, marginLeft: theme.spacing(2) }),
                 }}
                 TextFieldProps={{
-                    label: 'Country',
+                    label: 'City',
                     InputLabelProps: {
                         htmlFor: 'react-select-single',
                         shrink: true,
